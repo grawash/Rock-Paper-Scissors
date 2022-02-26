@@ -10,9 +10,23 @@ let computerSelection;
 function playGame(playerSelection,computerSelection){
     playerSelection = prompt("your choice ?").toLowerCase();
     computerSelection = computerPlay().toLowerCase();
-    if (playerSelection === computerSelection) return(playerSelection+" "+computerSelection+" draw");
+    if (playerSelection === computerSelection) return("draw");
     else if(playerSelection==="scissors" && computerSelection==="rock") return("you won! "+playerSelection+" beats "+computerSelection);
     else if(playerSelection==="rock" && computerSelection==="scissors") return("you won! "+playerSelection+" beats "+computerSelection);
     else if(playerSelection==="paper" && computerSelection==="rock") return("you won! "+playerSelection+" beats "+computerSelection);
-    else return(playerSelection+" beats "+computerSelection+" you lost to a computer!");
+    else return("you lost to a computer!");
+}
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let result;
+    for(let i=0;i<5;i++){
+        console.log("player: "+playerScore+" computer: "+computerScore)
+        result=playGame();
+        if (result==="you lost to a computer!") computerScore++;
+        else if(result==="draw") continue;
+        else playerScore++;
+    }
+    if(playerScore>computerScore) console.log("you won!");
+    else console.log("you lost!");
 }
