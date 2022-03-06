@@ -33,13 +33,13 @@ function playGame(playerSelection){
     computerSelection = computerPlay().toLowerCase();
     assignImage(computerSelection);
     if (playerSelection === computerSelection){ gameStatus.textContent = "draw";}
-    else if(playerSelection==="scissors" && computerSelection==="rock"){ playerScore++; gameStatus.textContent = ("you won! "+playerSelection+" beats "+computerSelection);}
+    else if(playerSelection==="scissors" && computerSelection==="paper"){ playerScore++; gameStatus.textContent = ("you won! "+playerSelection+" beats "+computerSelection);}
     else if(playerSelection==="rock" && computerSelection==="scissors"){ playerScore++; gameStatus.textContent = ("you won! "+playerSelection+" beats "+computerSelection);}
     else if(playerSelection==="paper" && computerSelection==="rock"){ playerScore++; gameStatus.textContent = ("you won! "+playerSelection+" beats "+computerSelection);}
     else{ computerScore++; gameStatus.textContent = ("you lost to a computer!")};
     results.textContent=(`you:${playerScore} computer:${computerScore} `)
     if(playerScore === 5){ results.textContent="you won"; disableButtons();}
-    if(computerScore === 5){ results.textContent="you lost;"; disableButtons();}
+    if(computerScore === 5){ results.textContent="you lost"; disableButtons();}
 }
 rock.addEventListener('click', () => {console.log(playGame("rock")); playerScreen.src=("./images/rock.png"); playerScreen.setAttribute('style', 'width: 200px; height: 200px'); });
 paper.addEventListener('click', () => {console.log(playGame("paper")); playerScreen.src=("./images/paper.png"); playerScreen.setAttribute('style', 'width: 200px; height: 200px'); });
